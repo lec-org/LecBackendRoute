@@ -134,12 +134,6 @@ IDEA是java开发利器，可以让我们代码敲得更加快速，更加方便
 
 
 
-
-
-
-
-
-
 ## 阶段四：工具篇
 
 ### Maven
@@ -164,6 +158,22 @@ IDEA是java开发利器，可以让我们代码敲得更加快速，更加方便
 
 ### Redis
 
+Redis是一种键值型的NoSql数据库，而NoSql则是相对于传统关系型数据库而言，有很大差异的一种数据库。
+
+对于存储的数据，没有类似Mysql那么严格的约束，比如唯一性，是否可以为null等等，所以我们把这种松散结构的数据库，称之为NoSQL数据库。
+
+**学习目标**
+
++ 学会使用redis常见的指令
++ 了解使用java操作redis(Jedis，其实不怎么直接使用)
++ 熟悉spring封装的工具类RedisTemplate，以后都用这个操作redis
++ 熟悉redis的key数据结构(这个不急，可以放到后面再学)
++ 了解一下redis集群和分布式管理
+
+redis其实不像mysql那样储存大量的持久化数据，redis更多的应用还是用来作缓存作用。
+
+这里强烈推荐[黑马的redis](https://www.bilibili.com/video/BV1cr4y1671t)一套通关
+
 
 
 ### nginx
@@ -182,15 +192,79 @@ IDEA是java开发利器，可以让我们代码敲得更加快速，更加方便
 
 
 
-### MyBatis
+### MyBatis/MyBatis-Plus
+
+​	mybatis是一种持久层框架，用于简化JDBC的开发，其实底层还是JDBC，只不过对JDBC进行了封装，使用者查询数据库操作更为简单，不用手动管理数据库连接对象等琐碎的准备工作。
+
+​	**学习目标：**
+
++ 理解并学会使用Mybatis配置文件，了解配置文件中各个标签及其属性的含义，能灵活修改配置文件
++ 学会编写mybatis的sql映射文件，统一管理sql语句
++ 在Java代码中使用SqlSession来调用映射文件中的sql语句来得到数据库里的数据
++ 学会编写动态SQL
++ 学会使用注解编写sql语句
 
 
 
-### MyBatis-Plus
+由于mybatis的配置文件和映射文件编写起来相对复杂，mybatisplus为我们封装了很多sql语句，不需要我们写相关的配置文件和sql，直接调用接口方法就能直接查询数据库。其功能与mybatis一样，但使用起来非常简便优雅
+
+**学习目标：**
+
+对于mybatisplus的学习目标就是要熟练运用相关注解和方法
+
++ mybatisplus为我们提供最主要的两个类就是BaseMapper和Iservice
++ BaseMapper是属于dao层的一个接口，里面封装了很多查询数据库的方法。
++ Iservice是属于Service层的一个接口，里面封装了很多BaseMapper的方法，j基本BaseMapper能实现的Iservice都能实现，所以一定要多去学习和运用IService中的方法(太多了，用到的时候现查都行，用多了就熟练了)。
++ 另外在使用mybatisplus进行数据查询的时候，多半会带有一些条件的查询，Wrapper类就是就是用来设置条件的，里面也封装了很多条件查询相关的方法，也要学一下
++ 实体类的有关注解
 
 
+
+学完以上两个框架，以后在项目中就不要使用JDBC了，直接用框架会使coding更简单。但是底层的JDBC也需要理解。看个人喜好选择使用mybatisplus还是mybatis，个人一直在用mybatisplus，用过都说爽，不用写乱七八糟的配置文件，拿着API直接用，sql也基本不怎么写，要写的时候也是直接作为参数传进方法里，十分的简单优雅。
+
+
+
+资料：[mybatis官方文档](https://mybatis.org/mybatis-3/zh/index.html)
+
+[MyBatis-Plus 官方文档](https://baomidou.com/pages/24112f/)
+
+[尚硅谷mybatis](https://www.bilibili.com/video/BV1VP4y1c7j7)
+
+[三更草堂mybatisplus](https://www.bilibili.com/video/BV1Bq4y1f7YD)，mybatis主要还是多看文档学会API
 
 ### SpringBoot
+
+Spring Boot是Spring 家族中的一个全新的框架，它用来简化Spring 应用程序的创建和开发过程，也可以说Spring Boot 能简化我们之前采用SpringMVC + Spring + MyBatis 框架进行开发的过程。
+
+采用Spring Boot可以非常容易和快速地创建基于Spring 框架的应用程序，它让编码变简单了，配置变简单了，部署变简单了，监控变简单了。正因为Spring Boot 它化繁为简，让开发变得极其简单和快速，所以在业界备受关注。
+
+### **Spring Boot 的特性**
+
+1）能够直接使用java main方法启动内嵌的 Tomcat 服务器运行 Spring Boot 程序，不需部署war包文件
+
+2）提供约定的 starter POM 来简化 Maven 配置，让 Maven 的配置变得简单
+
+3）自动化配置，根据项目的 Maven 依赖配置，Spring boot 自动配置 Spring、Spring mvc 等
+
+4）提供了程序的健康检查等功能
+
+5）基本可以完全不使用 XML 配置文件，采用注解配置
+
+**学习目标**
+
++ 理解起步依赖的概念以及结构
++ spring boot的配置
++ 学会各种技术框架与springboot的整合，例如日志技术，缓存控制等等
+
+
+
+资料
+
+[springboot官方文档]([Spring | Quickstart](https://spring.io/quickstart)) (还是看视频好点)
+
+[黑马springboot](https://www.bilibili.com/video/BV1Lq4y1J77x)
+
+
 
 
 
